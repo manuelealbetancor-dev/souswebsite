@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sous — Tu sous chef de bolsillo</title>
+  <meta name="description" content="Guarda recetas de TikTok, Instagram o YouTube en tu propio recetario. Sous extrae ingredientes y pasos, te guía en la cocina y planifica tu semana." />
+  <meta name="theme-color" content="#F8F8F6" />
+  <link rel="icon" type="image/png" href="assets/icon.png" />
+  <link rel="apple-touch-icon" href="assets/icon.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ============ NAV ============ -->
+  <header class="nav" id="nav">
+    <div class="container nav__inner">
+      <a href="#" class="brand" aria-label="Sous, inicio">
+        <img src="assets/icon.png" alt="" class="brand__icon" width="34" height="34" />
+        <span class="brand__name">Sous</span>
+      </a>
+      <nav class="nav__links" aria-label="Principal">
+        <a href="#funcionalidades">Funcionalidades</a>
+        <a href="#planificador">Planificador</a>
+        <a href="#descargar">Descargar</a>
+      </nav>
+      <a href="#descargar" class="btn btn--dark btn--sm">Prueba Sous gratis</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- ============ HERO ============ -->
+    <section class="hero">
+      <div class="container hero__grid">
+        <div class="hero__copy">
+          <a href="#planificador" class="pill reveal">
+            <span class="pill__tag">Nuevo</span>
+            Planificador de comidas con IA
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+
+          <h1 class="hero__title reveal">
+            Esa receta<br />
+            que viste,<br />
+            <em>por fin en tu cocina.</em>
+          </h1>
+
+          <p class="hero__lead reveal">
+            Pega un enlace de TikTok, Instagram o YouTube y Sous lo convierte en una receta clara:
+            ingredientes, cantidades y pasos, guardada en tu propio recetario.
+          </p>
+
+          <div class="hero__ctas reveal">
+            <a href="#descargar" class="appstore" aria-label="Descargar en el App Store">
+              <svg viewBox="0 0 384 512" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>
+              <span class="appstore__text">
+                <small>Descárgala en el</small>
+                App Store
+              </span>
+            </a>
+            <a href="#funcionalidades" class="btn btn--ghost">Cómo funciona</a>
+          </div>
+
+          <div class="sources reveal">
+            <span class="sources__label">Importa desde</span>
+            <ul class="sources__list">
+              <li><img src="assets/platforms/tiktok.png" alt="TikTok" title="TikTok" /></li>
+              <li><img src="assets/platforms/instagram.png" alt="Instagram" title="Instagram" /></li>
+              <li><img src="assets/platforms/pinterest.png" alt="Pinterest" title="Pinterest" /></li>
+              <li><img src="assets/platforms/facebook.png" alt="Facebook" title="Facebook" /></li>
+              <li><img src="assets/platforms/chrome.png" alt="Cualquier web" title="Cualquier web" /></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Phone mockup -->
+        <div class="hero__visual reveal" aria-hidden="true">
+          <img src="assets/stickers/tomato.png" class="float float--tomato" alt="" />
+          <img src="assets/stickers/cucumber.png" class="float float--basil" alt="" />
+          <img src="assets/stickers/olive.png" class="float float--olive" alt="" />
+
+          <div class="mascot">
+            <div class="mascot__bubble">¡Receta lista! 👨‍🍳</div>
+            <img src="assets/mascot.png" alt="" />
+          </div>
+
+          <div class="phone">
+            <div class="phone__screen">
+              <div class="phone__notch"></div>
+
+              <div class="r-video">
+                <img src="assets/carbonara.jpg" alt="" />
+                <span class="r-video__source">
+                  <img src="assets/platforms/instagram.png" alt="" /> @trattoria.lucia
+                </span>
+                <span class="r-video__play">
+                  <svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M8 5.5v13l11-6.5z"/></svg>
+                </span>
+              </div>
+
+              <div class="r-body">
+                <h3 class="r-title">Spaghetti alla carbonara</h3>
+                <div class="r-meta">
+                  <span>⏱ 20 min</span><span>·</span><span>2 raciones</span><span>·</span><span>Cena</span>
+                </div>
+
+                <div class="r-tabs">
+                  <span class="is-active">Ingredientes</span>
+                  <span>Preparación</span>
+                </div>
+
+                <ul class="r-ingredients">
+                  <li><img src="assets/stickers/spaghetti.png" alt="" /><span>Spaghetti</span><b>200 g</b></li>
+                  <li><img src="assets/stickers/guanciale.png" alt="" /><span>Guanciale</span><b>120 g</b></li>
+                  <li><img src="assets/stickers/egg.png" alt="" /><span>Yemas de huevo</span><b>3</b></li>
+                  <li><img src="assets/stickers/parmesan.png" alt="" /><span>Pecorino</span><b>50 g</b></li>
+                  <li><img src="assets/stickers/salt.png" alt="" /><span>Pimienta negra</span><b>al gusto</b></li>
+                </ul>
+
+                <div class="r-cta">Empezar a cocinar 👨‍🍳</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FEATURES ============ -->
+    <section class="features" id="funcionalidades">
+      <div class="container">
+        <header class="section-head reveal">
+          <span class="eyebrow">Funcionalidades</span>
+          <h2 class="section-title">Todo lo que necesitas.<br /><em>Nada que sobre.</em></h2>
+          <p class="section-lead">De la pantalla a la sartén en tres toques. Sous se encarga del trabajo aburrido para que tú solo tengas que cocinar.</p>
+        </header>
+
+        <div class="bento">
+          <!-- 1. Import -->
+          <article class="card card--wide reveal">
+            <div class="card__copy">
+              <span class="card__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07l-1.5 1.5"/><path d="M14 11a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07l1.5-1.5"/></svg>
+              </span>
+              <h3>Importa desde cualquier vídeo</h3>
+              <p>Pega el enlace de un reel, un TikTok o una web. La IA de Sous detecta los ingredientes, las cantidades y cada paso, aunque solo aparezcan en el audio.</p>
+            </div>
+            <div class="demo-import">
+              <div class="demo-import__input">
+                <img src="assets/platforms/tiktok.png" alt="" />
+                <span>tiktok.com/@cocinaconlucia/video/72…</span>
+                <b>Importar</b>
+              </div>
+              <div class="demo-import__arrow">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M6 13l6 6 6-6"/></svg>
+              </div>
+              <div class="demo-import__result">
+                <img src="assets/curry.jpg" alt="" class="demo-import__thumb" />
+                <div>
+                  <strong>Butter chicken con naan</strong>
+                  <span>9 ingredientes · 6 pasos · 35 min</span>
+                  <div class="chips">
+                    <span class="chip">Pollo</span><span class="chip">Tomate</span><span class="chip">Nata</span><span class="chip">Garam masala</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- 2. Cookbook -->
+          <article class="card card--book reveal">
+            <div class="card__copy">
+              <span class="card__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5V5a2 2 0 0 1 2-2h14v16H6.5A2.5 2.5 0 0 0 4 21.5v0A2.5 2.5 0 0 0 6.5 24"/><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/></svg>
+              </span>
+              <h3>Tu recetario, a tu manera</h3>
+              <p>Elige portada, estilo de cocina y organiza tus recetas por tipo de comida, tiempo o fecha.</p>
+            </div>
+            <div class="book-wrap">
+              <img src="assets/book.png" alt="Portada de recetario de Sous" class="book" loading="lazy" />
+            </div>
+          </article>
+
+          <!-- 3. Shopping list -->
+          <article class="card reveal">
+            <div class="card__copy">
+              <span class="card__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><path d="M3 6h18M16 10a4 4 0 0 1-8 0"/></svg>
+              </span>
+              <h3>Lista de la compra al instante</h3>
+              <p>Ingredientes con cantidades exactas y una lista lista para copiar o buscar en tu súper.</p>
+            </div>
+            <ul class="mini-list">
+              <li><img src="assets/stickers/tomato.png" alt="" />Tomate pera <b>4 uds</b><i class="check is-on"></i></li>
+              <li><img src="assets/stickers/cucumber.png" alt="" />Pepino <b>1 ud</b><i class="check is-on"></i></li>
+              <li><img src="assets/stickers/cheese.png" alt="" />Queso feta <b>200 g</b><i class="check"></i></li>
+              <li><img src="assets/stickers/olive.png" alt="" />Aceitunas Kalamata <b>80 g</b><i class="check"></i></li>
+            </ul>
+            <div class="toast">✓ ¡Lista copiada al portapapeles!</div>
+          </article>
+
+          <!-- 4. Cooking mode -->
+          <article class="card reveal">
+            <div class="card__copy">
+              <span class="card__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2 2M9 2h6"/></svg>
+              </span>
+              <h3>Modo Cocina</h3>
+              <p>Un paso cada vez, con letra grande y sin distracciones. Para cocinar con las manos ocupadas.</p>
+            </div>
+            <div class="step">
+              <div class="step__top">
+                <span>Paso 3 de 6</span>
+                <div class="step__bar"><i style="width: 50%"></i></div>
+              </div>
+              <p class="step__text">Retira la sartén del fuego y añade la mezcla de yemas y queso, removiendo rápido.</p>
+              <span class="step__btn">Siguiente paso →</span>
+            </div>
+          </article>
+
+          <!-- 5. Share extension -->
+          <article class="card reveal">
+            <div class="card__copy">
+              <span class="card__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8M16 6l-4-4-4 4M12 2v13"/></svg>
+              </span>
+              <h3>Guarda sin salir de la app</h3>
+              <p>Toca «Compartir» en Instagram o TikTok, elige Sous y la receta aparece en tu libro.</p>
+            </div>
+            <div class="share">
+              <div class="share__row">
+                <span class="share__app share__app--sous"><img src="assets/icon.png" alt="" /></span>
+                <span class="share__app"><img src="assets/platforms/instagram.png" alt="" /></span>
+                <span class="share__app"><img src="assets/platforms/pinterest.png" alt="" /></span>
+                <span class="share__app"><img src="assets/platforms/chrome.png" alt="" /></span>
+              </div>
+              <div class="share__labels"><span>Sous</span><span>Instagram</span><span>Pinterest</span><span>Chrome</span></div>
+            </div>
+          </article>
+
+          <!-- 6. Meal planner -->
+          <article class="card card--full card--dark reveal" id="planificador">
+            <div class="card__copy">
+              <span class="card__icon card__icon--light">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="3"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+              </span>
+              <span class="eyebrow eyebrow--light">Planificador de comidas con IA</span>
+              <h3>Tu semana resuelta, <em>dentro de tu presupuesto.</em></h3>
+              <p>Dinos cuántos sois, qué presupuesto tienes, tus preferencias y alergias, y en qué supermercado compras. Sous crea un menú semanal equilibrado, aprovecha tus recetas guardadas y calcula la cesta con paquetes reales.</p>
+              <ul class="ticks">
+                <li>Objetivos: alto en proteína, volumen o definición</li>
+                <li>Exclusiones y alergias como reglas estrictas</li>
+                <li>Lista de la compra consolidada y sin duplicados</li>
+              </ul>
+            </div>
+
+            <div class="planner">
+              <div class="planner__head">
+                <div>
+                  <small>Plan semanal · 2 personas</small>
+                  <strong>Mercadona</strong>
+                </div>
+                <div class="budget">
+                  <small>Cesta estimada</small>
+                  <strong>47,60 € <span>/ 50 €</span></strong>
+                  <div class="budget__bar"><i style="width: 95%"></i></div>
+                </div>
+              </div>
+              <div class="planner__days">
+                <div class="day"><span>Lun</span><b>Bowl de salmón</b><i>Alto en proteína</i></div>
+                <div class="day"><span>Mar</span><b>Carbonara</b><i>20 min</i></div>
+                <div class="day"><span>Mié</span><b>Butter chicken</b><i>De tu recetario</i></div>
+                <div class="day"><span>Jue</span><b>Ensalada griega</b><i>Rápida</i></div>
+                <div class="day"><span>Vie</span><b>Pizza margarita</b><i>Vegetariana</i></div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer" id="descargar">
+    <div class="container">
+      <div class="footer__cta reveal">
+        <img src="assets/mascot.png" alt="Mascota de Sous" class="footer__mascot" loading="lazy" />
+        <h2>Tu próxima receta favorita<br /><em>te está esperando.</em></h2>
+        <p>Descarga Sous para iPhone y empieza a construir tu recetario hoy.</p>
+        <a href="#" class="appstore appstore--light" aria-label="Descargar en el App Store">
+          <svg viewBox="0 0 384 512" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>
+          <span class="appstore__text"><small>Descárgala en el</small>App Store</span>
+        </a>
+      </div>
+
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a href="#" class="brand brand--light">
+            <img src="assets/icon.png" alt="" class="brand__icon" width="34" height="34" />
+            <span class="brand__name">Sous</span>
+          </a>
+          <p>Tu sous chef de bolsillo. Guarda, organiza y cocina las recetas que te inspiran.</p>
+        </div>
+        <div class="footer__col">
+          <h4>Producto</h4>
+          <a href="#funcionalidades">Funcionalidades</a>
+          <a href="#planificador">Planificador</a>
+          <a href="#descargar">Descargar</a>
+        </div>
+        <div class="footer__col">
+          <h4>Soporte</h4>
+          <a href="#">Centro de ayuda</a>
+          <a href="mailto:hola@sous.app">Contacto</a>
+        </div>
+        <div class="footer__col">
+          <h4>Legal</h4>
+          <a href="#">Privacidad</a>
+          <a href="#">Términos de uso</a>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <span>© <span id="year">2026</span> Sous. Todos los derechos reservados.</span>
+        <span>Hecho con hambre 🍝</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
