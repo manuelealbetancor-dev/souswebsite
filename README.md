@@ -1,6 +1,6 @@
-# Sous — Landing
+# Chefo — Landing
 
-Landing page for **Sous**, your pocket sous chef: save recipes from TikTok, Instagram, or YouTube into your personal cookbook.
+Landing page for **Chefo**, your pocket sous chef: save recipes from TikTok, Instagram, or YouTube into your personal cookbook.
 
 Static site (HTML + CSS + JS, zero dependencies). To view locally, open `index.html` in your browser.
 
