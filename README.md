@@ -1,12 +1,12 @@
 # Sous — Landing
 
-Landing page de **Sous**, tu sous chef de bolsillo: guarda recetas de TikTok, Instagram o YouTube en tu propio recetario.
+Landing page for **Sous**, your pocket sous chef: save recipes from TikTok, Instagram, or YouTube into your personal cookbook.
 
-Sitio estático (HTML + CSS + JS, sin dependencias). Para verlo en local, abre `index.html` en el navegador.
+Static site (HTML + CSS + JS, zero dependencies). To view locally, open `index.html` in your browser.
 
-## Estructura
+## Structure
 
-- `index.html` — Hero, funcionalidades y footer
-- `styles.css` — Estilos basados en el design system de la app iOS
-- `script.js` — Animaciones de aparición y nav al hacer scroll
-- `assets/` — Iconos, mascota, stickers, imágenes y fuente Inter
+- `index.html` — Hero, features, and footer
+- `styles.css` — Styles based on the iOS app's design system
+- `script.js` — Scroll reveal animations and dynamic navbar
+- `assets/` — Icons, mascot, stickers, mockups, and Inter font
