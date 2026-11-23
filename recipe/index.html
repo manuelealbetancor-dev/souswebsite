@@ -1,3 +1,15 @@
 <!doctype html>
-<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex"><title>Receta · Chefo</title><link rel="stylesheet" href="style.css"></head>
-<body><main><header>CHEFO <span>De mi cocina a la tuya</span></header><p id="status" role="status">Abriendo receta…</p><article hidden><p class="eyebrow">UNA RECETA PARA COMPARTIR</p><h1 id="title"></h1><p id="details"></p><section><h2>Ingredientes</h2><ul id="ingredients"></ul></section><section><h2>Preparación</h2><ol id="steps"></ol></section><button id="print" type="button">Imprimir receta</button></article><footer>Compartida con Chefo</footer></main><script src="config.js"></script><script src="app.js"></script></body></html>
+<html lang="es">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex"><meta name="theme-color" content="#f8f8f6"><title>Receta · Chefo</title><link rel="stylesheet" href="style.css?v=2"></head>
+<body><main>
+<nav aria-label="Receta compartida"><a class="brand" href="/" aria-label="Chefo, inicio"><img src="assets/mascot.png" alt="" width="34" height="34">Chefo</a><button class="icon-button" id="print" aria-label="Imprimir receta" type="button">↥</button></nav>
+<p id="status" role="status">Abriendo receta…</p>
+<article hidden>
+<div class="dish" aria-hidden="true"><div class="dish-card"><img src="assets/mascot.png" alt=""><span id="dish-emoji">🍽️</span></div><i></i><i></i></div>
+<h1 id="title"></h1><p class="subtitle">Tu receta paso a paso, lista para cocinar.</p>
+<section id="nutrition" hidden><div class="section-heading"><h2>Macronutrientes</h2><span class="pill">Por ración</span></div><div class="nutrition-card"><p class="energy"><strong id="calories"></strong> <b>kcal</b> <span>/ ración</span></p><p class="muted">Valores estimados por ración</p><div class="macro-bar" aria-hidden="true"></div><div id="macros" class="macros"></div></div></section>
+<section><div class="section-heading"><h2>Ingredientes</h2><span class="pill" id="servings"></span></div><ul id="ingredients" class="ingredients"></ul></section>
+<section id="preparation"><div class="section-heading"><h2>Preparación</h2><span class="time" id="minutes"></span></div><ol id="steps" class="steps"></ol></section>
+<footer>Compartida con Chefo</footer>
+<div class="bottom-actions"><button id="cook" type="button">Empezar a cocinar <span aria-hidden="true">→</span></button></div>
+</article></main><script src="config.js"></script><script src="app.js?v=2"></script></body></html>
