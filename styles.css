@@ -400,7 +400,7 @@ em { font-family: var(--serif); font-style: italic; font-weight: 400; letter-spa
 }
 
 /* ---------- Reveal ---------- */
-.reveal { opacity: 0; transform: translateY(24px); transition: opacity .9s var(--ease), transform .9s var(--ease); }
+.reveal { opacity: 1; transform: none; transition: opacity .9s var(--ease), transform .9s var(--ease); }
 .reveal.is-visible { opacity: 1; transform: none; }
 .hero .reveal:nth-child(2) { transition-delay: .08s; }
 .hero .reveal:nth-child(3) { transition-delay: .16s; }
