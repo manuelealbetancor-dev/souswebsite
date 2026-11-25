@@ -2,8 +2,8 @@
 const status = document.querySelector('#status');
 const stickers = [
   [/pepino|cucumber/, 'cucumber'], [/tomate|tomato/, 'tomato'],
-  [/guanciale|bacon|panceta|pancetta|cerdo/, 'guanciale'], [/huevo|egg/, 'egg'],
-  [/parmesano|parmesan|pecorino/, 'parmesan'], [/queso|feta|mozzarella|cheese|burrata/, 'cheese'],
+  [/guanciale|bacon|panceta|pancetta|cerdo|tocino/, 'guanciale'], [/huevo|egg/, 'egg'],
+  [/parmesano|parmesan|pecorino/, 'parmesan'], [/queso|feta|mozzarella|cheese|burrata|cheddar/, 'cheese'],
   [/spaghetti|pasta|espagueti|ramen|noodle|rigatoni/, 'spaghetti'],
   [/aceituna|olive|aceite|aove/, 'olive'], [/cebolla|onion|ajo|garlic/, 'onion'],
   [/\bsal\b|salt|pimienta|pepper|oregano|especia/, 'salt'],
@@ -54,12 +54,66 @@ function renderNutrition(nutrition) {
   calories.forEach((value, index) => { const bar = node('i'); bar.style.width = `${sum ? value / sum * 100 : 0}%`; bar.style.background = colors[index]; document.querySelector('.macro-bar').append(bar); });
   document.querySelector('#nutrition').hidden = false;
 }
-document.querySelector('#print').addEventListener('click', () => window.print());
-document.querySelector('#cook').addEventListener('click', () => {
-  const firstStep = document.querySelector('.step');
-  document.querySelector('#preparation').scrollIntoView({ block: 'start' });
-  if (firstStep) firstStep.focus({ preventScroll: true });
+function appStoreURL() {
+  return (typeof CHEFO_CONFIG !== 'undefined' && CHEFO_CONFIG.appStoreURL) || 'https://apps.apple.com/es/app/sous-app-guarda-recetas/id6817463161';
+}
+document.querySelector('#print').addEventListener('click', async () => {
+  const title = document.querySelector('#title')?.textContent || 'Receta en Chefo';
+  const url = location.href;
+  if (navigator.share) {
+    try { await navigator.share({ title, url }); return; }
+    catch (err) { if (err && err.name === 'AbortError') return; }
+  }
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    try {
+      await navigator.clipboard.writeText(url);
+      const label = document.querySelector('#share-label');
+      if (label) {
+        label.textContent = '¡Copiado!';
+        setTimeout(() => { label.textContent = 'Compartir'; }, 1800);
+      }
+      return;
+    } catch {}
+  }
+  window.print();
 });
+// "Empezar a cocinar" takes the visitor directly to the App Store URL.
+document.querySelector('#cook').addEventListener('click', () => {
+  location.href = appStoreURL();
+});
+function applyRecipeThumbnail(src) {
+  const thumbnail = document.querySelector('#recipe-thumbnail');
+  if (!thumbnail || !src) return;
+  thumbnail.onload = () => {
+    thumbnail.classList.add('recipe-photo');
+    document.querySelector('#dish-emoji').hidden = true;
+  };
+  thumbnail.onerror = () => {
+    thumbnail.classList.remove('recipe-photo');
+    thumbnail.src = 'assets/mascot.png';
+    document.querySelector('#dish-emoji').hidden = false;
+  };
+  thumbnail.src = src;
+}
+async function tryFetchOEmbedThumbnail(sourceURL) {
+  try {
+    const u = new URL(sourceURL);
+    const host = u.hostname.toLowerCase();
+    let endpoint = null;
+    if (host.includes('tiktok.com')) {
+      endpoint = `https://www.tiktok.com/oembed?url=${encodeURIComponent(sourceURL)}`;
+    } else if (host.includes('youtube.com') || host.includes('youtu.be')) {
+      endpoint = `https://www.youtube.com/oembed?url=${encodeURIComponent(sourceURL)}&format=json`;
+    }
+    if (!endpoint) return null;
+    const res = await fetch(endpoint);
+    if (!res.ok) return null;
+    const data = await res.json();
+    return typeof data.thumbnail_url === 'string' && data.thumbnail_url.startsWith('https://') ? data.thumbnail_url : null;
+  } catch {
+    return null;
+  }
+}
 async function loadRecipe() {
   const id = new URLSearchParams(location.search).get('id');
   if (!/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(id || '')) {
@@ -76,6 +130,27 @@ async function loadRecipe() {
     if (typeof recipe.title !== 'string' || !Array.isArray(recipe.ingredients) || !recipe.ingredients.every(x => typeof x === 'string') || !Array.isArray(recipe.steps) || !recipe.steps.every(x => typeof x === 'string')) throw new Error('format');
     document.title = `${recipe.title} · Chefo`;
     document.querySelector('#title').textContent = recipe.title;
+    let hasThumbnail = false;
+    if (typeof recipe.thumbnailDataURL === 'string' && recipe.thumbnailDataURL.length <= 160000 && /^data:image\/(jpeg|png|webp);base64,[A-Za-z0-9+/]+={0,2}$/.test(recipe.thumbnailDataURL)) {
+      applyRecipeThumbnail(recipe.thumbnailDataURL);
+      hasThumbnail = true;
+    } else if (typeof recipe.thumbnailURL === 'string' && recipe.thumbnailURL.startsWith('https://')) {
+      applyRecipeThumbnail(recipe.thumbnailURL);
+      hasThumbnail = true;
+    }
+    if (typeof recipe.sourceURL === 'string') {
+      try {
+        const source = new URL(recipe.sourceURL);
+        if (['https:', 'http:'].includes(source.protocol) && !source.username && !source.password) {
+          const link = document.querySelector('#source-video');
+          link.href = source.href;
+          link.hidden = false;
+          if (!hasThumbnail) {
+            tryFetchOEmbedThumbnail(source.href).then(url => { if (url) applyRecipeThumbnail(url); });
+          }
+        }
+      } catch { /* Older shares and invalid source links remain readable. */ }
+    }
     if (typeof recipe.emoji === 'string') document.querySelector('#dish-emoji').textContent = recipe.emoji;
     const servings = document.querySelector('#servings');
     servings.textContent = Number.isFinite(recipe.servings) && recipe.servings > 0 ? `${recipe.servings} Rac` : '';
@@ -98,4 +173,15 @@ async function loadRecipe() {
     status.hidden = true; document.querySelector('article').hidden = false;
   } catch { status.textContent = 'No pudimos abrir la receta. Comprueba tu conexión y recarga la página.'; }
 }
+// Download banner: links to the App Store URL from config and can be dismissed for the session.
+(() => {
+  const banner = document.querySelector('#app-banner');
+  if (!banner) return;
+  document.querySelector('#app-download').href = appStoreURL();
+  try { if (sessionStorage.getItem('chefo-banner-closed')) banner.hidden = true; } catch { /* storage unavailable */ }
+  document.querySelector('#app-banner-close').addEventListener('click', () => {
+    banner.hidden = true;
+    try { sessionStorage.setItem('chefo-banner-closed', '1'); } catch { /* storage unavailable */ }
+  });
+})();
 loadRecipe();

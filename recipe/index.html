@@ -1,15 +1,17 @@
 <!doctype html>
 <html lang="es">
-<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex"><meta name="theme-color" content="#f8f8f6"><title>Receta · Chefo</title><link rel="stylesheet" href="style.css?v=2"></head>
-<body><main>
-<nav aria-label="Receta compartida"><a class="brand" href="/" aria-label="Chefo, inicio"><img src="assets/mascot.png" alt="" width="34" height="34">Chefo</a><button class="icon-button" id="print" aria-label="Imprimir receta" type="button">↥</button></nav>
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="referrer" content="no-referrer"><meta name="robots" content="noindex"><meta name="theme-color" content="#f8f8f6"><title>Receta · Chefo</title><link rel="stylesheet" href="style.css?v=7"></head>
+<body><aside class="app-banner" id="app-banner" aria-label="Descargar Chefo"><img src="assets/mascot.png" alt="" width="40" height="40"><div class="app-banner-text"><strong>Chefo</strong><span>Guarda y cocina recetas de cualquier vídeo</span></div><a id="app-download" class="app-banner-cta" href="https://apps.apple.com/es/app/sous-app-guarda-recetas/id6817463161" target="_blank" rel="noopener">Descargar</a><button class="app-banner-close" id="app-banner-close" type="button" aria-label="Cerrar">×</button></aside>
+<main>
+<nav aria-label="Receta compartida"><a class="brand" href="/" aria-label="Chefo, inicio"><img src="assets/mascot.png" alt="" width="34" height="34">Chefo</a><button class="share-pill" id="print" aria-label="Compartir receta" type="button"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 8 5-5 5 5"/><path d="M5 14v5a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-5"/></svg><span id="share-label">Compartir</span></button></nav>
 <p id="status" role="status">Abriendo receta…</p>
 <article hidden>
-<div class="dish" aria-hidden="true"><div class="dish-card"><img src="assets/mascot.png" alt=""><span id="dish-emoji">🍽️</span></div><i></i><i></i></div>
+<div class="dish" aria-hidden="true"><div class="dish-card"><img id="recipe-thumbnail" src="assets/mascot.png" alt=""><span id="dish-emoji">🍽️</span></div><i></i><i></i></div>
+<a id="source-video" class="source-video" target="_blank" rel="noopener noreferrer" hidden>▶ Ver vídeo original <span aria-hidden="true">↗</span></a>
 <h1 id="title"></h1><p class="subtitle">Tu receta paso a paso, lista para cocinar.</p>
 <section id="nutrition" hidden><div class="section-heading"><h2>Macronutrientes</h2><span class="pill">Por ración</span></div><div class="nutrition-card"><p class="energy"><strong id="calories"></strong> <b>kcal</b> <span>/ ración</span></p><p class="muted">Valores estimados por ración</p><div class="macro-bar" aria-hidden="true"></div><div id="macros" class="macros"></div></div></section>
 <section><div class="section-heading"><h2>Ingredientes</h2><span class="pill" id="servings"></span></div><ul id="ingredients" class="ingredients"></ul></section>
 <section id="preparation"><div class="section-heading"><h2>Preparación</h2><span class="time" id="minutes"></span></div><ol id="steps" class="steps"></ol></section>
 <footer>Compartida con Chefo</footer>
 <div class="bottom-actions"><button id="cook" type="button">Empezar a cocinar <span aria-hidden="true">→</span></button></div>
-</article></main><script src="config.js"></script><script src="app.js?v=2"></script></body></html>
+</article></main><script src="config.js?v=3"></script><script src="app.js?v=7"></script></body></html>

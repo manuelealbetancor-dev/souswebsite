@@ -1,1 +1,1 @@
-const CHEFO_CONFIG = {"supabaseURL": "https://abjodxbyyptstjidgnqz.supabase.co", "publishableKey": "sb_publishable_muppDiFRWdBlZIhuPd01Xg_aIKQUKAB"};
+const CHEFO_CONFIG = {"supabaseURL": "https://abjodxbyyptstjidgnqz.supabase.co", "appStoreURL": "https://apps.apple.com/es/app/sous-app-guarda-recetas/id6817463161", "publishableKey": "sb_publishable_muppDiFRWdBlZIhuPd01Xg_aIKQUKAB"};
