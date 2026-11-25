@@ -77,9 +77,23 @@ document.querySelector('#print').addEventListener('click', async () => {
   }
   window.print();
 });
-// "Empezar a cocinar" takes the visitor directly to the App Store URL.
+// "Guardar receta" opens Chefo and saves the recipe into the user's cookbook; without the app it falls back to the App Store.
 document.querySelector('#cook').addEventListener('click', () => {
-  location.href = appStoreURL();
+  const id = new URLSearchParams(location.search).get('id') || '';
+  const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+  if (!isIOS || !id) { location.href = appStoreURL(); return; }
+  let opened = false;
+  const markOpened = () => { if (document.hidden) opened = true; };
+  document.addEventListener('visibilitychange', markOpened);
+  window.addEventListener('pagehide', markOpened);
+  const started = Date.now();
+  location.href = `chefo://recipe?id=${encodeURIComponent(id)}`;
+  setTimeout(() => {
+    document.removeEventListener('visibilitychange', markOpened);
+    window.removeEventListener('pagehide', markOpened);
+    // If the page stayed visible, the app is not installed.
+    if (!opened && !document.hidden && Date.now() - started < 4000) location.href = appStoreURL();
+  }, 1600);
 });
 function applyRecipeThumbnail(src) {
   const thumbnail = document.querySelector('#recipe-thumbnail');
